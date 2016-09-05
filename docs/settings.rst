@@ -55,6 +55,17 @@ You can override any settings in your project's :file:`settings.py` file
     If you override it, ensure that ``your_get_slug(any_valid_slug) == any_valid_slug``
 
 
+.. confval:: WALIKI_SANITIZE_FUNCTION
+
+    .. versionadded:: 0.6
+
+    String pointing to a callable that receive html and return and return a sanitized version of it.
+    Default ``'waliki.utils.sanitize'``, which just removes ``<script>`` tags.
+
+    You can define a more sofisticated version using `bleach <http://bleach.readthedocs.org>`_ or
+    lxml's `Cleaner <http://lxml.de/api/lxml.html.clean.Cleaner-class.html>`_
+
+
 .. confval:: WALIKI_MARKUPS_SETTINGS
 
     Dictionary of keywords arguments to extend or override the ones passed for each markup class.
@@ -85,6 +96,13 @@ You can override any settings in your project's :file:`settings.py` file
         }
 
 
+.. confval:: WALIKI_BREADCRUMBS
+
+    .. versionadded:: 0.6
+
+    If ``True``, show a breadcrumbs with links to "parent" pages. Default is ``False``
+
+
 .. confval:: WALIKI_PDF_INCLUDE_TITLE
 
     Apply if :ref:`PDF plugin <pdf>` is installed.
@@ -104,7 +122,7 @@ You can override any settings in your project's :file:`settings.py` file
 
     .. code-block:: python
 
-        {'theme': 'mbo', 'autofocus': True, 'lineNumbers': True})
+        {'theme': 'mbo', 'autofocus': True, 'lineNumbers': True}
 
 .. confval:: WALIKI_RENDER_403
 

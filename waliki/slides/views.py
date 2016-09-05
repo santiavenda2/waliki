@@ -1,7 +1,12 @@
 from os import path
 import shutil
 import tempfile
-from sh import hovercraft
+try:
+    from sh import hovercraft
+    hovercraft = hovercraft.bake(_tty_out=False)
+except ImportError:
+    hovercraft = None
+
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponse
 from django.core.cache import cache

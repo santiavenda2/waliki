@@ -6,10 +6,11 @@ from mock import patch, PropertyMock
 from django.test import TestCase
 from django.core.urlresolvers import reverse
 from waliki.models import Page
-from waliki.git import Git
+from waliki.git.models import Git
 from waliki.settings import WALIKI_DATA_DIR, WALIKI_COMMITTER_EMAIL, WALIKI_COMMITTER_NAME
 from .factories import PageFactory
 
+git = git.bake("--no-pager", _tty_out=False)
 
 class TestGit(TestCase):
 

@@ -3,11 +3,12 @@ from django.core.urlresolvers import reverse
 from .factories import PageFactory
 from waliki.settings import WALIKI_DATA_DIR
 from waliki.models import Page
-from waliki.git import Git
+from waliki.git.models import Git
 import json
 import os
 import shutil
 from sh import git
+git = git.bake("--no-pager", _tty_out=False)
 
 
 class TestGitWebhook(TestCase):
